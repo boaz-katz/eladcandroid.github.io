@@ -1,12 +1,9 @@
-function useFetch(url, callback) {
-  fetch(url)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      callback(data);
-      console.log(data);
-    });
+function useFetch(url, show) {
+  axios.get(url).then(function (show) {
+    let img = document.querySelector("img");
+    img.src = show.data[0].url;
+    console.log(show.data);
+  });
 }
 
 function callbackFunc(dataInFunc) {
